@@ -1,5 +1,5 @@
 {
-  "title": "Hello World",
+  "title": "Pet Store",
   "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
   "details": {
     "steps": [
@@ -8,24 +8,20 @@
         "text": "step1.md"
       },
       {
-        "title": "Initializing the project",
+        "title": "Application Overview",
         "text": "step2.md"
       },
       {
-        "title": "Cell explanation",
+        "title": "Cell Files",
         "text": "step3.md"
       },
       {
-        "title": "Deploying the Cell",
+        "title": "Deploying Cells",
         "text": "step4.md"
       },
       {
-        "title": "Building the modified Hello World Docker",
-        "text": "step6.md"
-      },
-      {
-        "title": "Cellery Hub",
-        "text": "step7.md"
+        "title": "Observability",
+        "text": "step5.md"
       }
     ],
     "intro": {
@@ -42,18 +38,8 @@
           "chmod": "+x"
         },
         {
-          "file": "index.html",
-          "target": "/root/workspace/custom",
-          "chmod": "+x"
-        },
-        {
-          "file": "Dockerfile",
-          "target": "/root/workspace/custom",
-          "chmod": "+x"
-        },
-        {
-          "file": "hello-world.bal",
-          "target": "/root/workspace/custom",
+          "file": "kube-wait.sh",
+          "target": "/usr/local/bin/",
           "chmod": "+x"
         }
       ]
@@ -63,12 +49,16 @@
   "environment": {
     "hidefinish": true,
     "uilayout": "editor-terminal",
-    "uieditorpath": "/root/workspace",
+    "uieditorpath": "/root/pet-store",
     "showdashboard": true,
     "dashboards": [
       {
         "name": "Web Cell",
-        "port": 2000
+        "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/items/"
+      },
+      {
+        "name": "Observability",
+        "port": 4000
       }
     ]
   },
