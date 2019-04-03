@@ -1,12 +1,17 @@
-## Building a Cell
+#### Cell
+A cell is a collection of components, grouped from design and implementation into deployment. A cell is independently deployable, manageable, and observable.
 
-Bulding the cell will generates artifacts thats required to run your Cell.
-This will automatically generate all the kuberentes artifacts for your cell.
+#### Component
+A component represents business logic running in a container, serverless environment, or an existing runtime.
 
-`cellery build hello-world.bal -t yourRepo/hello-world-cell:1.0.0`{{execute}}
+In this scenario, Our goal is to deploy a simple hello world web app. Therefore we need only one component in the cell.
 
+Notice the component Object, it specifies all the information about the component including Component name, Docker image source, ingresses etc.
 
-## Running a Cell
+#### Build function
+This method will be executed when you use `cellery build` in the next step. We will explain more about this in the next step.
 
-You can use `run` command to deploy and run your cells in 
-`cellery run yourRepo/hello-world-cell:1.0.0`{{execute}}
+#### Run function
+This method will be executed when you use `cellery run` in the next step. We will explain more about this in the next step.
+
+You can find more about the Cellery syntax by visiting https://github.com/wso2-cellery/spec

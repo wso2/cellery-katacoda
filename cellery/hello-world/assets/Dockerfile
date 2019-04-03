@@ -16,6 +16,5 @@
 #
 # ------------------------------------------------------------------------
 
-export ORG_NAME="wso2-cellery"
-export CELLERY_HOME="/usr/bin/cellery"
-sleep 2; wait.sh
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
