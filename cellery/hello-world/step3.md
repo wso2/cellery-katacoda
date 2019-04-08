@@ -1,17 +1,19 @@
-#### Cell
-A cell is a collection of components, grouped from design and implementation into deployment. A cell is independently deployable, manageable, and observable.
+In this step, you will be creating your first Cellery project.
 
-#### Component
-A component represents business logic running in a container, serverless environment, or an existing runtime.
+First, switch directory into the workspace directory  
+`cd workspace`{{execute}}
 
-In this scenario, Our goal is to deploy a simple hello world web app. Therefore we need only one component in the cell.
+The following command will initialise your first Cellery project. This will auto-generate the “hello-world-web” project.  
+`cellery init`{{execute}}
 
-Notice the component Object, it specifies all the information about the component including Component name, Docker image source, ingresses etc.
+Enter your project name in the terminal  
+`hello-world`{{execute}}
 
-#### Build function
-This method will be executed when you use `cellery build` in the next step. We will explain more about this in the next step.
+This has creates a folder for your project.  
+`cd hello-world`{{execute}}
 
-#### Run function
-This method will be executed when you use `cellery run` in the next step. We will explain more about this in the next step.
+Cellery init has created a cell code file, which defines the cell in a programmable way. Cellery uses the Ballerina language (https://ballerina.io) to define cells.
 
-You can find more about the Cellery syntax by visiting https://github.com/wso2-cellery/spec
+The “hello-world” cell deploys a container which serves a simple web page.
+
+You can examine cell that was created from the editor, the inline comments will explain about each field and operation However, In the next step we will be learning about each field in detail.

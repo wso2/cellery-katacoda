@@ -1,20 +1,17 @@
-It's time to build and run your cell file. 
+#### Cell
+A cell is a collection of containers that work together. Cells can expose web sites or APIs (or both). Cells are independently deployable, manageable, and observable.
 
-Notice the vhost field in the hello world cell. It allows you to access your web cell in a virtual host.  
-However, Since katacoda is hosted online, You have to execute following command to access the cell via web UI  
-`sed -i 's/hello-world.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' hello-world.bal`{{execute}}
+#### Component
+A component is a microservice running in a container. In the future we also plan to add support serverless components.
 
-Build command executes the build function in your Cell file. The main purpose of this command is to generate the required component artifacts for kubernetes.  
-`cellery build hello-world.bal wso2-cellery/hello-world-cell:1.0.0`{{execute}}
+In this scenario, Our goal is to deploy a simple hello world web app. Therefore we need only one component in the cell.
 
-The run command executes the run function in your Cell file. The main purpose of this command is to deploy your cell file inside kubernetes.  
-`cellery run wso2-cellery/hello-world-cell:1.0.0`{{execute}}
+Notice the component definition: it specifies all the information about the component including the component’s name, container image, the network ingresses and any environment variables the component needs.
 
-You can specify any kind of logic inside above functions.
+#### Build function
+This method is executed when the cell is built (`cellery build`). This is coming up in the next step.
 
-We will be discussing advanced use cases in future scenarios.
+#### Run function
+This method is executed when the cell is run (`cellery run`). This is coming up in the next step.
 
-You can use the below command to see the status of the deployment.  
-`cellery list instances`{{execute}}
-
-Once it's ready you can click Web Cell tab to open the hello world page.
+You can find more about the Cellery syntax by visiting https://github.com/wso2-cellery/spec
