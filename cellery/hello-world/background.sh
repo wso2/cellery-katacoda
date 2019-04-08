@@ -23,14 +23,14 @@ launch.sh
 
 git clone https://github.com/wso2-cellery/distribution.git
 
-sudo apt-get remove -y cellery
-wget https://github.com/xlight05/katacoda-scenarios/releases/download/0.0.2/cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
-sudo dpkg -i cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
+wget https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u202-b08/OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz
+mkdir /usr/java
+sudo tar xvzf OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz -C /usr/java
+rm OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz
 
-sudo cp /usr/share/cellery/runtime/ballerina-0.990.3/bre/lib/cellery-0.2.0-SNAPSHOT.jar /usr/lib/ballerina/ballerina-0.990.3/bre/lib
-sudo cp -r /usr/share/cellery/repo/celleryio /usr/lib/ballerina/ballerina-0.990.3/lib/repo
-mkdir -p ~/.ballerina/repo/
-sudo cp -r /usr/share/cellery/repo/celleryio /usr/lib/ballerina/ballerina-0.990.3/lib/repo ~/.ballerina/repo/
+sudo apt-get remove -y cellery
+wget https://wso2.org/jenkins/job/cellery/job/sdk/103/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-730f882deb03fa8e0a58151d8134c8988987e4f2.deb
+sudo dpkg -i cellery-ubuntu-x64-730f882deb03fa8e0a58151d8134c8988987e4f2.deb
 
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
@@ -52,8 +52,8 @@ kube-wait.sh
 rm cellery-setup.log
 rm -r distribution
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-acc7aa3c8c5ff0ae86120bedf2c17812205510f5.deb
+rm cellery-ubuntu-x64-730f882deb03fa8e0a58151d8134c8988987e4f2.deb
 
 echo "done" >> /root/katacoda-finished
 end=$(date +%s)
-echo "Took $(($end-$start)) seconds "https://gist.githubusercontent.com/xlight05/3fa261aaef8d32dac4bc4b9d90f0dfd4/raw/89daca1a56721b29efaddece2b954b7c7b5de8be/service-nodeport.yaml
+echo "Took $(($end-$start)) seconds "

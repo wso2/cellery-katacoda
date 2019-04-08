@@ -1,35 +1,17 @@
-We will be modifying the HTML page and dockerizing the page in this step.
-  
-We have prepared a hello world sample and the required Dockerfile to containerize the Hello world.  
-`cd /root/workspace/custom`{{execute}}
+It's time to build and run your cell file. 
 
-Open the hello world html by clicking the following link and edit it as you like.  
-`custom/index.html`{{open}}  
-`custom/Dockerfile`{{open}}
+The `cellery build` command executes the build function in your cell file, which builds a cell image. The cell image is a set of component artifacts for kubernetes.  
+`cellery build hello-world.bal <DOCKER_USERNAME>/hello-world-cell:1.0.0`
 
-We will be needing a docker hub account to push the docker image.  
-If you don’t have one, you can sign up using https://hub.docker.com/signup  
-`docker login`{{execute}}
+This web application displays the output depending on the environment variable that is being passed to the container. In order to change the Hello world output, execute the following command.  
+`export HELLO_NAME="<Your Name here>"`
 
-Execute below command to set the docker username as ORG system variable. By default the ORG_NAME system variable is set to ‘wso2-cellery’.
+The run command runs your cell. This loads all the components and then executes the run function in your cell file. The result is that your cell is deployed into Kubernetes.  
+`cellery run <DOCKER_USERNAME>/hello-world-cell:1.0.0`
 
-`export ORG_NAME=<DOCKER_USERNAME>`
+You can specify any kind of logic inside the build and run functions, for example configuring the cell using environment variables.
 
-You have to use the docker build to build your new image.  
-Since we need to push the docker image afterward we will be tagging the image while building.  
-`docker build --tag $ORG_NAME/hello-world .`{{execute}}
-
-We will be pushing the docker image you just built using the following command.  
-`docker push $ORG_NAME/hello-world`{{execute}}
-
-Now, you have to replace the source field of the Cell file with your own docker image.
-
-Rebuild and run the Cell file  
-`sed -i 's/hello-world.com/[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/g' hello-world.bal`{{execute}}
-
-`cellery build hello-world.bal $ORG_NAME/hello-world:1.0.0`{{execute}}  
-`cellery run $ORG_NAME/hello-world:1.0.0`{{execute}}
+You can use the below command to see the status of the deployment  
+`cellery list instances`{{execute}}
 
 Once it's ready you can click Web Cell tab to open the hello world page.
-
-After Cell is ready click on the web cell and visits the updated cell.

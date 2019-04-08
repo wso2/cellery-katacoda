@@ -8,23 +8,23 @@
         "text": "step1.md"
       },
       {
-        "title": "Initializing the project",
+        "title": "Cellery demonstration",
         "text": "step2.md"
       },
       {
-        "title": "Cell explanation",
+        "title": "Initializing the project",
         "text": "step3.md"
       },
       {
-        "title": "Deploying the Cell",
+        "title": "Cell explanation",
         "text": "step4.md"
       },
       {
-        "title": "Building the modified Hello World Docker",
+        "title": "Deploying the cell",
         "text": "step6.md"
       },
       {
-        "title": "Cellery Hub",
+        "title": "Push your image to Docker Hub (Optional)",
         "text": "step7.md"
       }
     ],
@@ -39,21 +39,6 @@
         {
           "file": "wait.sh",
           "target": "/usr/local/bin/",
-          "chmod": "+x"
-        },
-        {
-          "file": "index.html",
-          "target": "/root/workspace/custom",
-          "chmod": "+x"
-        },
-        {
-          "file": "Dockerfile",
-          "target": "/root/workspace/custom",
-          "chmod": "+x"
-        },
-        {
-          "file": "hello-world.bal",
-          "target": "/root/workspace/custom",
           "chmod": "+x"
         }
       ]
