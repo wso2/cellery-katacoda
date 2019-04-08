@@ -40,6 +40,11 @@
           "file": "wait.sh",
           "target": "/usr/local/bin/",
           "chmod": "+x"
+        },
+        {
+          "file": "kube-wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
         }
       ]
     }
