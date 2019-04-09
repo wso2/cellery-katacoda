@@ -1,0 +1,11 @@
+{
+  "name": "docs-view",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "~4.16.0"
+  }
+}
