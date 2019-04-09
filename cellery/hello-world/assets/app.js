@@ -16,7 +16,7 @@
 
 var express = require('express');
 var path = require('path');
-var fs=require('fs');
+var fs = require('fs');
 var exec = require('child_process').exec;
 
 const temp = `/tmp/`;
@@ -27,23 +27,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/hello', function (req, res) {
-    exec("cellery view wso2cellery/cells-hello-world-webapp:0.1.0", function(err, stdout, stderr) {
-        console.log(stdout);
+    exec("cellery view wso2cellery/cells-hello-world-webapp:0.1.0", function (err, stdout, stderr) {
+        var docViewFiles = getCelleryDocsFolders();
+        var docViewFolder = getLastCreatedFolder(docViewFiles);
+        app.use(express.static(docViewFolder));
+        res.sendFile(path.join(docViewFolder, 'index.html'));
     });
-    var docViewFiles = getCelleryDocsFolders();
-    var docViewFolder = getLastCreatedFolder(docViewFiles);
-    app.use(express.static(docViewFolder));
-    res.sendFile(path.join(docViewFolder, 'index.html'));
 });
 
-function getCelleryDocsFolders(){
-    var files=fs.readdirSync(temp);
+function getCelleryDocsFolders() {
+    var files = fs.readdirSync(temp);
     var docViewFiles = [];
-    for(var i=0;i<files.length;i++){
-        var filepath=path.join(temp,files[i]);
+    for (var i = 0; i < files.length; i++) {
+        var filepath = path.join(temp, files[i]);
         var filename = files[i];
         var stat = fs.lstatSync(filepath);
-        if (stat.isDirectory()){
+        if (stat.isDirectory()) {
             if (filename.startsWith('cellery-docs-view')) {
                 docViewFiles.push(filepath)
             }
@@ -52,10 +51,10 @@ function getCelleryDocsFolders(){
     return docViewFiles;
 }
 
-function getLastCreatedFolder (folderList) {
+function getLastCreatedFolder(folderList) {
     var latestFolderPath = folderList[0];
     var latestFolderTime = folderList[0];
-    for(var i=0;i<folderList.length;i++){
+    for (var i = 0; i < folderList.length; i++) {
         var stat = fs.lstatSync(folderList[i]);
         var currentFolderCreationTime = stat.ctime;
         if (currentFolderCreationTime > latestFolderTime) {
