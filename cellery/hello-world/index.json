@@ -48,12 +48,22 @@
         },
         {
           "file": "app.js",
-          "target": "/root/view",
+          "target": "/root/docs-view",
           "chmod": "+x"
         },
         {
           "file": "package.json",
-          "target": "/root/view",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "package.json",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "favicon.ico",
+          "target": "/root/docs-view/assets",
           "chmod": "+x"
         }
       ]
@@ -72,7 +82,7 @@
       },
       {
         "name": "Docs View",
-        "href": "https://[[HOST_SUBDOMAIN]]-9990-[[KATACODA_HOST]].environments.katacoda.com/hello"
+        "href": "https://[[HOST_SUBDOMAIN]]-9990-[[KATACODA_HOST]].environments.katacoda.com/docs"
       }
     ]
   },
