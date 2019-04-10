@@ -23,14 +23,9 @@ launch.sh
 
 git clone https://github.com/wso2-cellery/distribution.git
 
-wget https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u202-b08/OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz
-mkdir /usr/java
-sudo tar xvzf OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz -C /usr/java
-rm OpenJDK8U-jdk_x64_linux_hotspot_8u202b08.tar.gz
-
 sudo apt-get remove -y cellery
-wget https://wso2.org/jenkins/job/cellery/job/sdk/113/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-3be4fcc3e66e603ea73b4eecc6f40314dab5c4ad.deb
-sudo dpkg -i cellery-ubuntu-x64-3be4fcc3e66e603ea73b4eecc6f40314dab5c4ad.deb
+wget https://wso2.org/jenkins/job/cellery/job/sdk/124/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
+sudo dpkg -i cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
 
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
@@ -52,7 +47,7 @@ kube-wait.sh
 rm cellery-setup.log
 rm -r distribution
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-3be4fcc3e66e603ea73b4eecc6f40314dab5c4ad.deb
+rm cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
 
 curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
@@ -60,7 +55,7 @@ sudo apt-get -y install nodejs
 
 echo "done" >> /root/katacoda-finished
 
-cd /root/view
+cd /root/docs-view
 npm install
 node app.js
 
