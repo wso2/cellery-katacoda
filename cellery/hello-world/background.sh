@@ -24,8 +24,8 @@ launch.sh
 git clone https://github.com/wso2-cellery/distribution.git
 
 sudo apt-get remove -y cellery
-wget https://wso2.org/jenkins/job/cellery/job/sdk/124/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
-sudo dpkg -i cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
+wget https://github.com/wso2-cellery/sdk/releases/download/v0.2.0/cellery-ubuntu-x64-0.2.0.deb
+sudo dpkg -i cellery-ubuntu-x64-0.2.0.deb
 
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/conf/carbon.xml
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' distribution/installer/k8s-artefacts/global-idp/global-idp.yaml
@@ -47,7 +47,7 @@ kube-wait.sh
 rm cellery-setup.log
 rm -r distribution
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-40772520b7f999ce62136c2417e138dfef8d1fab.deb
+rm cellery-ubuntu-x64-0.2.0.deb
 
 curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh

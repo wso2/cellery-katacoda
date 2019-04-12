@@ -57,11 +57,6 @@
           "chmod": "+x"
         },
         {
-          "file": "package.json",
-          "target": "/root/docs-view",
-          "chmod": "+x"
-        },
-        {
           "file": "favicon.ico",
           "target": "/root/docs-view/assets",
           "chmod": "+x"
