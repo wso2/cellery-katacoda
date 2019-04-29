@@ -7,6 +7,12 @@
       "course_id": "hello-world",
       "title": "Hello world",
       "description": "A guide that deploys simple hello world with Cellery"
+    },
+    {
+      "course_id": "pet-store",
+      "title": "Pet-Store",
+      "description": "A guide that deploys simple Petstore with cellery"
     }
   ]
 }
+
