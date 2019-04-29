@@ -1,3 +1,4 @@
+#!/bin/bash
 # ------------------------------------------------------------------------
 #
 # Copyright 2019 WSO2, Inc. (http://wso2.com)
@@ -16,6 +17,28 @@
 #
 # ------------------------------------------------------------------------
 
-export VHOST_NAME="[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com"
-export providerUrl="https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/oauth2/token"
-sleep 2; wait.sh
+show_progress()
+{
+  local -r pid="${1}"
+  local -r delay='0.75'
+  local spinstr='\|/-'
+  local temp
+  echo -n "Waiting for the observability portal"
+  while true; do
+    sudo grep -i "done" /root/obs-finished &> /dev/null
+    if [[ "$?" -ne 0 ]]; then
+      temp="${spinstr#?}"
+      printf " [%c]  " "${spinstr}"
+      spinstr=${temp}${spinstr%"${temp}"}
+      sleep "${delay}"
+      printf "\b\b\b\b\b\b"
+    else
+      break
+    fi
+  done
+  printf "    \b\b\b\b"
+  echo ""
+  echo "Cellery Observability portal is ready"
+}
+
+show_progress
