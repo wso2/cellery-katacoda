@@ -16,7 +16,7 @@ Take your time and explore the files that are generated for you.
 
 Click on the links below to open the Cell files with the editor. The inline comments will explain about each field and operation.
 
-`backend/pet-be.bal`{{open}}  
-`frontend/pet-fe.bal`{{open}}
+`pet-be/pet-be.bal`{{open}}  
+`pet-fe/pet-fe.bal`{{open}}
 
 If you are interested in learning what these containers do, you can find them under the `components` folder in each Cell folder. It contains the Dockerfile as well. You can modify them if needed.

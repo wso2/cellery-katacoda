@@ -1,5 +1,10 @@
-Click on the Observability tab to open the Cellery Observability portal.There you will be able to observe the Cells deployed on Cellery Mesh. It shows the current status of the mesh, also you can select the preferred time range to view the historical view.
+Click on the Observability tab to open the Cellery Observability portal.
 
+You can access Observability portal by using the following credentials.  
+`Username - admin`  
+`Password - admin`
+
+There you will be able to observe the Cells deployed on Cellery Mesh. It shows the current status of the mesh, also you can select the preferred time range to view the historical view.
 You can navigate the portal to view  
 * Runtime dependency models of cells and components  
 * Distributed tracing (Request based latency analysis by each component)  
