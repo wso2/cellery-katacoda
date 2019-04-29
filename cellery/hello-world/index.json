@@ -34,6 +34,9 @@
       "code": "foreground.sh",
       "credits": ""
     },
+    "finish": {
+      "text": "finish.md"
+    },
     "assets": {
       "host01": [
         {
@@ -60,13 +63,25 @@
           "file": "favicon.ico",
           "target": "/root/docs-view/assets",
           "chmod": "+x"
+        },
+        {
+          "file": "service-nodeport.yaml",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "registry.xml",
+          "target": "/usr/tmp/is"
+        },
+        {
+          "file": "master-datasources.xml",
+          "target": "/usr/tmp/is/datasources"
         }
       ]
     }
   },
   "files": [],
   "environment": {
-    "hidefinish": true,
     "uilayout": "editor-terminal",
     "uieditorpath": "/root/workspace",
     "showdashboard": true,
@@ -78,6 +93,10 @@
       {
         "name": "Docs View",
         "href": "https://[[HOST_SUBDOMAIN]]-9990-[[KATACODA_HOST]].environments.katacoda.com/docs"
+      },
+      {
+        "name": "Observability",
+        "href": "http://[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/"
       }
     ]
   },
