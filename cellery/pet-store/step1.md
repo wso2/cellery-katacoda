@@ -1,4 +1,4 @@
-A basic Cellery installation (including Kubernetes runtime, Cellery Mesh runtime, and Cellery CLI) will start automatically and may take a few minutes to complete. This will set up an environment here in the cloud that you can try Cellery out with.
+A basic Cellery installation (including Kubernetes runtime, Cellery Mesh runtime, and Cellery CLI) will start automatically and may take a few minutes to complete. This will set up an environment in the cloud to try out Cellery.
 
 Once the installation is completed, run the following command to check that it is properly installed.  
 `cellery version`{{execute}}
