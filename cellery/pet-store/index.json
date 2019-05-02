@@ -20,6 +20,10 @@
         "text": "step4.md"
       },
       {
+        "title": "Browsing the Pet Store Application",
+        "text": "browsecell.md"
+      },
+      {
         "title": "Observability",
         "courseData": "step5-back.sh",
         "code": "step5-fore.sh",
@@ -61,6 +65,16 @@
         },
         {
           "file": "favicon.ico",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "style.css",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "cellery-logo.svg",
           "target": "/root/docs-view/assets",
           "chmod": "+x"
         },

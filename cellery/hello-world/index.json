@@ -65,6 +65,16 @@
           "chmod": "+x"
         },
         {
+          "file": "style.css",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "cellery-logo.svg",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
           "file": "service-nodeport.yaml",
           "target": "/usr/local/bin/",
           "chmod": "+x"
