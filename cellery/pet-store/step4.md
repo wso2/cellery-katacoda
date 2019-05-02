@@ -20,4 +20,4 @@ Run the pet-fe Cell. It will deploy the artifacts that are generated from the bu
 You can view the status of Pet store frontend Cell deployment by running  
 `cellery status pet-fe`{{execute}}
 
-Once it's ready you can click Web Cell tab to open the Frontend web cell in your browser.
+You can view the auto generated cell diagram by clicking **Docs View** button above the terminal
