@@ -1,29 +1,32 @@
-#!/bin/bash
-# ------------------------------------------------------------------------
+##!/bin/bash
+## ------------------------------------------------------------------------
+##
+## Copyright 2019 WSO2, Inc. (http://wso2.com)
+##
+## Licensed under the Apache License, Version 2.0 (the "License");
+## you may not use this file except in compliance with the License.
+## You may obtain a copy of the License at
+##
+## http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License
+##
+## ------------------------------------------------------------------------
 #
-# Copyright 2019 WSO2, Inc. (http://wso2.com)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License
-#
-# ------------------------------------------------------------------------
-
-
 echo "start" >> /root/katacoda-finished
 launch.sh
 
-sudo apt-get remove -y cellery
-wget https://github.com/wso2-cellery/sdk/releases/download/v0.2.0/cellery-ubuntu-x64-0.2.0.deb
-sudo dpkg -i cellery-ubuntu-x64-0.2.0.deb
+dpkg -r cellery
+wget "https://product-dist.ballerina.io/downloads/0.991.0/ballerina-linux-installer-x64-0.991.0.deb"
+sudo dpkg -i ballerina-linux-installer-x64-0.991.0.deb
+latestCommitSha=$(curl --retry 5 "https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/api/xml?xpath=//lastBuiltRevision/SHA1" | sed "s@.*<SHA1>\\(.*\\)</SHA1>.*@\\1@")
+wget "https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-$latestCommitSha.deb" -O cellery-ubuntu-x64-latest.deb
+sudo dpkg -i cellery-ubuntu-x64-latest.deb
 
 download_path=${DOWNLOAD_PATH:-tmp-cellery}
 distribution_url=${GIT_DISTRIBUTION_URL:-https://github.com/wso2-cellery/distribution/archive}
@@ -70,9 +73,12 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/05-crd-gateway.yaml
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/06-crd-token-service.yaml
 kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/07-crd-service.yaml
-kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/08-config.yaml
-kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/09-autoscale-policy.yaml
-kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/10-controller.yaml
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/08-crd-autoscale-policy.yaml
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/09-config.yaml
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/10-secret.yaml
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/controller/11-controller.yaml
+
+kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-artefacts/system/knative-serving.yaml
 
 #Create the IDP config maps
 kubectl create configmap identity-server-conf --from-file=${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf -n cellery-system
@@ -98,7 +104,7 @@ echo "done" >> /root/katacoda-finished
 
 curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
-sudo apt-get -y install nodejs
+sudo apt-get -y install nodejs < "/dev/null"
 
 cd /root/docs-view
 npm install
@@ -166,7 +172,7 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 
 sleep 10
 
-#Observability  
+#Observability
 #Create SP worker configmaps
 kubectl create configmap sp-worker-siddhi --from-file=${download_path}/mesh-observability-${release_version}/components/global/core/io.cellery.observability.siddhi.apps/src/main/siddhi -n cellery-system
 kubectl create configmap sp-worker-conf --from-file=${download_path}/distribution-${release_version}/installer/k8s-artefacts/observability/sp/conf -n cellery-system
@@ -189,4 +195,4 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 
 rm cellery-setup.log
 rm -r tmp-cellery
-rm cellery-ubuntu-x64-0.2.0.deb
+rm cellery-ubuntu-x64-latest.deb

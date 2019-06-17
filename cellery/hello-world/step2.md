@@ -1,7 +1,7 @@
 In order to demonstrate the outcome of the scenario, we will be using a pre built cell image which is hosted on docker hub.
 
 You can use the following command to run the prebuilt hello world web cell.  
-`cellery run wso2cellery/hello-world-cell:0.2.0 -n hello`{{execute}}
+`cellery run wso2cellery/hello-world-cell:latest -n hello`{{execute}}
 
 As you can see in the terminal , above command checks your existing local cell images and if the requested image is not available in your local repository, it will perform a pull from the docker registry to check if its available in docker hub.
 
