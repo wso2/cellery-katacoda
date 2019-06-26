@@ -22,20 +22,22 @@ echo "start" >> /root/katacoda-finished
 launch.sh
 
 dpkg -r cellery
-wget "https://product-dist.ballerina.io/downloads/0.991.0/ballerina-linux-installer-x64-0.991.0.deb"
-sudo dpkg -i ballerina-linux-installer-x64-0.991.0.deb
-latestCommitSha=$(curl --retry 5 "https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/api/xml?xpath=//lastBuiltRevision/SHA1" | sed "s@.*<SHA1>\\(.*\\)</SHA1>.*@\\1@")
-wget "https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/artifact/installers/ubuntu-x64/target/cellery-ubuntu-x64-$latestCommitSha.deb" -O cellery-ubuntu-x64-latest.deb
-sudo dpkg -i cellery-ubuntu-x64-latest.deb
+wget "https://product-dist.ballerina.io/downloads/0.991.0/ballerina-linux-installer-x64-0.991.0.deb" #Build
+sudo dpkg -i ballerina-linux-installer-x64-0.991.0.deb #Build
+latestCommitSha=$(curl --retry 5 "https://wso2
+.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/api/xml?xpath=//lastBuiltRevision/SHA1" | sed "s@.*<SHA1>\\(.*\\)</SHA1>.*@\\1@") #Build
+wget "https://wso2.org/jenkins/job/cellery/job/sdk/lastSuccessfulBuild/artifact/installers/ubuntu-x64/target/cellery
+-ubuntu-x64-$latestCommitSha.deb" -O cellery-ubuntu-x64-latest.deb #Build
+sudo dpkg -i cellery-ubuntu-x64-latest.deb #Build
 
-download_path=${DOWNLOAD_PATH:-tmp-cellery}
-distribution_url=${GIT_DISTRIBUTION_URL:-https://github.com/wso2-cellery/distribution/archive}
-release_version=${RELEASE_VERSION:-master}
+download_path=${DOWNLOAD_PATH:-tmp-cellery} #Build
+distribution_url=${GIT_DISTRIBUTION_URL:-https://github.com/wso2-cellery/distribution/archive} #Build
+release_version=${RELEASE_VERSION:-master} #Build
 
 #Download k8s artifacts
-mkdir ${download_path}
-wget ${distribution_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log
-unzip ${download_path}/${release_version}.zip -d ${download_path}
+mkdir ${download_path} #Build
+wget ${distribution_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log #Build
+unzip ${download_path}/${release_version}.zip -d ${download_path} #Build
 
 cp -rf /usr/tmp/is/. ${download_path}/distribution-${release_version}/installer/k8s-artefacts/global-idp/conf/
 
@@ -102,21 +104,21 @@ kube-wait.sh
 
 echo "done" >> /root/katacoda-finished
 
-curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get -y install nodejs < "/dev/null"
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh #Build
+sudo bash nodesource_setup.sh #Build
+sudo apt-get -y install nodejs < "/dev/null" #Build
 
-cd /root/docs-view
-npm install
+cd /root/docs-view #Build
+npm install  #Build
 nohup node app.js > output.log &
 
 cd ~/
 
-observability_url=${GIT_OBSERVABILITY_URL:-https://github.com/wso2-cellery/mesh-observability/archive}
-release_version=${RELEASE_VERSION:-master}
+observability_url=${GIT_OBSERVABILITY_URL:-https://github.com/wso2-cellery/mesh-observability/archive} #Build
+release_version=${RELEASE_VERSION:-master} #Build
 
-wget ${observability_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log
-unzip ${download_path}/${release_version}.zip -d ${download_path}
+wget ${observability_url}/${release_version}.zip -O ${download_path}/${release_version}.zip -a cellery-setup.log #Build
+unzip ${download_path}/${release_version}.zip -d ${download_path} #Build
 
 sed -i 's/idp.cellery-system/[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com/g' ${download_path}/mesh-observability-${release_version}/components/global/portal/io.cellery.observability.ui/node-server/config/portal.json
 
