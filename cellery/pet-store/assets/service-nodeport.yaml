@@ -9,38 +9,35 @@ metadata:
 spec:
   type: NodePort
   externalIPs:
-  - 172.17.17.100
-  - 10.0.2.15
-  
+  - xxx.xxx.xxx.xxx
   ports:
-    - name: http
-      port: 80
-      targetPort: 80
-      protocol: TCP
-    - name: https
-      port: 443
-      targetPort: 443
-      protocol: TCP
-    - name: webcell
-      port: 2000
-      targetPort: 80
-      protocol: TCP
-    - name: idp
-      port: 3000
-      targetPort: 80
-      protocol: TCP
-    - name: cellery-dashboard
-      port: 4000
-      targetPort: 80
-      protocol: TCP
-    - name: cellery-k8s-metrices
-      port: 5000
-      targetPort: 80
-      protocol: TCP
-    - name: wso2sp-observability-api
-      port: 6000
-      targetPort: 80
-      protocol: TCP
+  - name: http
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  - name: https
+    port: 443
+    targetPort: 443
+    protocol: TCP
+  - name: api-manager
+    port: 9000
+    targetPort: 80
+    protocol: TCP
+  - name: api-manager-gateway
+    port: 9002
+    targetPort: 80
+    protocol: TCP
+  - name: observability
+    port: 9004
+    targetPort: 80
+    protocol: TCP
+  - name: observability-api
+    port: 9006
+    targetPort: 80
+  - name: pet-store-web-port
+    port: 8000
+    targetPort: 80
+    protocol: TCP
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx

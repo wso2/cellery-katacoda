@@ -1,0 +1,53 @@
+{
+  "title": "Cellery Playground (Stable)",
+  "description": "Play and experiment with stable Cellery release v0.3.0",
+  "difficulty": "beginner",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Experiment with Cellery",
+        "courseData": "background.sh",
+        "code": "foreground.sh",
+        "text": "step1.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        {
+          "file": "setup.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "service-nodeport.yaml",
+          "target": "/tmp/"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "hidefinish": true,
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "API Manager - Publisher",
+        "href": "https://[[HOST_SUBDOMAIN]]-9000-[[KATACODA_HOST]].environments.katacoda.com/publisher"
+      },
+      {
+        "name": "API Manager - Store",
+        "href": "https://[[HOST_SUBDOMAIN]]-9000-[[KATACODA_HOST]].environments.katacoda.com/store"
+      },
+      {
+        "name": "Observability",
+        "href": "https://[[HOST_SUBDOMAIN]]-9004-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "wso2"
+  }
+}

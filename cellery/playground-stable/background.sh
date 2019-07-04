@@ -44,14 +44,6 @@ install_cellery(){
     sudo dpkg -i ${TEMP_DIR}/cellery-ubuntu-x64-0.3.0.deb
 }
 
-setup_doc_server(){
-    sudo apt-get install npm nodejs-legacy -y
-    npm install -g http-server
-    wget --directory-prefix=${TEMP_DIR}/ https://github.com/Mirage20/katacoda-scenarios/releases/download/v0.3.0/hello-world-docs-view.zip
-    unzip -d ${TEMP_DIR}/hello-world-docs-view ${TEMP_DIR}/hello-world-docs-view.zip
-    nohup http-server ${TEMP_DIR}/hello-world-docs-view/ -p 8080 > ${TEMP_DIR}/hello-world-docs-view/output.log 2>&1 &
-}
-
 update_apim_host_config () {
     echo 'Updating API Manager Host Configurations'
     find ${ARTIFACTS_BASE_PATH}/global-apim/ -type f -exec sed -i 's/idp.cellery-system/'${APIM_HOST_NAME}'/g' {} +
@@ -80,9 +72,7 @@ install_ballerina
 echo "done" >> /opt/.ballerinaInstalled
 
 install_cellery
-setup_doc_server
 echo "done" >> /opt/.celleryInstalled
-
 
 
 update_apim_host_config

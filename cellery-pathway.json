@@ -1,7 +1,6 @@
 {
   "title": "Cellery tutorials",
   "description": "This course contains series of tutorials about Cellery",
-  "icon": "fa-katacoda",
   "courses": [
     {
       "course_id": "hello-world",
@@ -12,6 +11,16 @@
       "course_id": "pet-store",
       "title": "Pet-Store",
       "description": "A guide that deploys simple Petstore with cellery"
+    },
+    {
+      "course_id": "playground-stable",
+      "title": "Cellery Playground (Stable)",
+      "description": "Play and experiment with stable Cellery release v0.3.0"
+    },
+    {
+      "course_id": "playground-nightly",
+      "title": "Cellery Playground (Nightly Build)",
+      "description": "Play and experiment with latest Cellery nightly build"
     }
   ]
 }

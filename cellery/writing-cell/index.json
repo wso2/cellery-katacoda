@@ -4,7 +4,7 @@
   "details": {
     "steps": [
       {
-        "title": "Preparing the environment",
+        "title": "Writing a cell file",
         "text": "step1.md"
       },
       {
@@ -24,7 +24,7 @@
         "text": "step6.md"
       },
       {
-        "title": "Push your image to Cellery Hub (Optional)",
+        "title": "Push your image to Docker Hub (Optional)",
         "text": "step7.md"
       }
     ],
@@ -45,6 +45,31 @@
           "chmod": "+x"
         },
         {
+          "file": "app.js",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "package.json",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "favicon.ico",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "style.css",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "cellery-logo.svg",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
           "file": "service-nodeport.yaml",
           "target": "/tmp/"
         }
@@ -59,10 +84,6 @@
       {
         "name": "Web Cell",
         "port": 8000
-      },
-      {
-        "name": "Docs View",
-        "href": "https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
       },
       {
         "name": "Observability",
