@@ -1,0 +1,125 @@
+{
+  "title": "Pet Store",
+  "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
+  "details": {
+    "steps": [
+      {
+        "title": "Preparing the environment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Application Overview",
+        "text": "step2.md"
+      },
+      {
+        "title": "Cell Files",
+        "text": "step3.md"
+      },
+      {
+        "title": "Deploying Cells",
+        "text": "step4.md"
+      },
+      {
+        "title": "Browsing the Pet Store Application",
+        "text": "browsecell.md"
+      },
+      {
+        "title": "Observability",
+        "courseData": "step5-back.sh",
+        "code": "step5-fore.sh",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "background.sh",
+      "code": "foreground.sh",
+      "credits": ""
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "kube-wait.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "service-nodeport.yaml",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "app.js",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "package.json",
+          "target": "/root/docs-view",
+          "chmod": "+x"
+        },
+        {
+          "file": "favicon.ico",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "style.css",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "cellery-logo.svg",
+          "target": "/root/docs-view/assets",
+          "chmod": "+x"
+        },
+        {
+          "file": "registry.xml",
+          "target": "/usr/tmp/is"
+        },
+        {
+          "file": "master-datasources.xml",
+          "target": "/usr/tmp/is/datasources"
+        },
+        {
+          "file": "wait-obs-back.sh",
+          "target": "/usr/local/bin",
+          "chmod": "+x"
+        },
+        {
+          "file": "wait-obs.sh",
+          "target": "/usr/local/bin",
+          "chmod": "+x"
+        }
+      ]
+    }
+  },
+  "files": [],
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/pet-store",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Web Cell",
+        "href": "https://[[HOST_SUBDOMAIN]]-2000-[[KATACODA_HOST]].environments.katacoda.com/"
+      },
+      {
+        "name": "Observability",
+        "href": "http://[[HOST_SUBDOMAIN]]-4000-[[KATACODA_HOST]].environments.katacoda.com/"
+      },
+      {
+        "name": "Docs View",
+        "href": "https://[[HOST_SUBDOMAIN]]-9990-[[KATACODA_HOST]].environments.katacoda.com/docs"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "wso2"
+  }
+}

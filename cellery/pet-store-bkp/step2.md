@@ -9,4 +9,4 @@ This Sample is a simple Web App which consists of 5 Docker images (4 microservic
 5. Portal (A simple Node JS container serving a React App with Server Side Rendering)  
 
 You can find the Cell architecture diagram below.
-![Architecture](/wso2/courses/cellery/pet-store/assets/architecture.jpg)
+![Architecture](/xlight/courses/cellery/pet-store/assets/architecture.jpg)

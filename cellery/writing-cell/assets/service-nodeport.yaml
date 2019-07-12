@@ -34,9 +34,6 @@ spec:
   - name: observability-api
     port: 9006
     targetPort: 80
-  - name: hello-web-port
-    port: 8000
-    targetPort: 80
     protocol: TCP
   selector:
     app.kubernetes.io/name: ingress-nginx
