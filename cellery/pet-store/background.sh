@@ -32,7 +32,7 @@ TEMP_DIR=/tmp
 
 copy_samples(){
     git clone https://github.com/wso2-cellery/samples
-    ( cd samples/ ; git checkout master )
+    ( cd samples/ ; git checkout v0.3.0 )
     mkdir -p /root/pet-store/pet-be/resources/
     mkdir -p /root/pet-store/pet-fe
     cp samples/cells/pet-store/pet-be/pet-be.bal /root/pet-store/pet-be

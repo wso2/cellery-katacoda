@@ -13,6 +13,11 @@
       "description": "A guide that deploys simple Petstore with cellery"
     },
     {
+      "course_id": "writing-cell",
+      "title": "Writing cell file from scratch",
+      "description": "Setp by Setp guide to write a cell file"
+    },
+    {
       "course_id": "playground-stable",
       "title": "Cellery Playground (Stable)",
       "description": "Play and experiment with stable Cellery release v0.3.0"

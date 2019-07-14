@@ -114,13 +114,3 @@ is producing html web page, we are going to expose it as a `WebIngress`. The `We
 
 **Congratulations! You just wrote your first cell file.**
 
-
-cellery build hello-world.bal myorg/hello-world-cell:latest
-
-cellery list images
-
-cellery run myorg/hello-world-cell:latest -e VHOST_NAME=my-hello-world.com -n hello-cellery -y
-
-cellery list instances
-
-
