@@ -17,6 +17,8 @@
 #
 # ------------------------------------------------------------------------
 
+export VHOST_NAME="[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
+
 sleep 2; setup.sh
 
 

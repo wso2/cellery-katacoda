@@ -1,6 +1,7 @@
 {
-  "title": "Hello World",
-  "description": "Demonstrates how to deploy a simple Hello world web page with cellery",
+  "title": "Writing cell file from scratch",
+  "description": "Setp by Setp guide to write a cell file",
+  "time": "20 minutes",
   "details": {
     "steps": [
       {
@@ -8,31 +9,14 @@
         "text": "step1.md"
       },
       {
-        "title": "Cellery demonstration",
+        "title": "Building and running",
         "text": "step2.md"
-      },
-      {
-        "title": "Initializing the project",
-        "text": "step3.md"
-      },
-      {
-        "title": "Cell explanation",
-        "text": "step4.md"
-      },
-      {
-        "title": "Deploying the cell",
-        "text": "step6.md"
-      },
-      {
-        "title": "Push your image to Docker Hub (Optional)",
-        "text": "step7.md"
       }
     ],
     "intro": {
       "text": "intro.md",
       "courseData": "background.sh",
-      "code": "foreground.sh",
-      "credits": ""
+      "code": "foreground.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -42,31 +26,6 @@
         {
           "file": "setup.sh",
           "target": "/usr/local/bin/",
-          "chmod": "+x"
-        },
-        {
-          "file": "app.js",
-          "target": "/root/docs-view",
-          "chmod": "+x"
-        },
-        {
-          "file": "package.json",
-          "target": "/root/docs-view",
-          "chmod": "+x"
-        },
-        {
-          "file": "favicon.ico",
-          "target": "/root/docs-view/assets",
-          "chmod": "+x"
-        },
-        {
-          "file": "style.css",
-          "target": "/root/docs-view/assets",
-          "chmod": "+x"
-        },
-        {
-          "file": "cellery-logo.svg",
-          "target": "/root/docs-view/assets",
           "chmod": "+x"
         },
         {
@@ -82,7 +41,7 @@
     "showdashboard": true,
     "dashboards": [
       {
-        "name": "Web Cell",
+        "name": "Hello Cell",
         "port": 8000
       },
       {

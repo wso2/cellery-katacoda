@@ -1,1 +1,1 @@
-Congratulations, You have successfully deployed your first hello world Cell. :)
+Congratulations, You wrote your first cell file and deployed successfully.
