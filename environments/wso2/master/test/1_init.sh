@@ -1,55 +1,3 @@
-wget https://github.com/wso2-cellery/sdk/releases/download/v0.2.0/cellery-ubuntu-x64-0.2.0.deb
-sudo dpkg -i cellery-ubuntu-x64-0.2.0.deb
-
-curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt-get -y install git
-sudo apt-get -y install nodejs
-#TODO DOCS VIEW
-
-#WSO2Cellery Docker images
-docker pull wso2cellery/hello-world-cell
-docker pull wso2cellery/hello-world-api-cell
-docker pull wso2cellery/sampleapp-stock
-docker pull wso2cellery/sampleapp-salary
-docker pull wso2cellery/sampleapp-employee
-docker pull wso2cellery/samples-productreview-ratings
-docker pull wso2cellery/sampleapp-hr
-docker pull wso2cellery/samples-productreview-mysql
-docker pull wso2cellery/samples-pet-store-portal
-docker pull wso2cellery/samples-pet-store-customers
-docker pull wso2cellery/samples-pet-store-orders
-docker pull wso2cellery/samples-pet-store-catalog
-docker pull wso2cellery/samples-pet-store-controller
-docker pull wso2cellery/cell-gateway-base
-docker pull wso2cellery/wso2is-lightweight
-docker pull wso2cellery/sp-worker-base
-docker pull wso2cellery/cell-gateway
-docker pull wso2cellery/cell-gateway-init
-docker pull wso2cellery/wso2am
-docker pull wso2cellery/envoy-oidc-filter
-docker pull wso2cellery/mesh-controller
-docker pull wso2cellery/cell-sts
-docker pull wso2cellery/sp-worker
-docker pull wso2cellery/observability-portal
-docker pull wso2cellery/samples-productreview-products
-docker pull wso2cellery/samples-productreview-customers
-
-#Istio Docker images
-docker pull gcr.io/istio-release/proxy_init:1.0.2
-docker pull quay.io/coreos/hyperkube:v1.7.6_coreos.0
-docker pull docker.io/prom/statsd-exporter:v0.6.0
-docker pull gcr.io/istio-release/galley:1.0.2
-docker pull gcr.io/istio-release/proxyv2:1.0.2
-docker pull gcr.io/istio-release/grafana:1.0.2
-docker pull gcr.io/istio-release/mixer:1.0.2
-docker pull gcr.io/istio-release/pilot:1.0.2
-docker pull docker.io/prom/prometheus:v2.3.1
-docker pull gcr.io/istio-release/citadel:1.0.2
-docker pull gcr.io/istio-release/servicegraph:1.0.2
-docker pull gcr.io/istio-release/sidecar_injector:1.0.2
-docker pull docker.io/jaegertracing/all-in-one:1.5
-
 #Test Run
 download_path=${DOWNLOAD_PATH:-tmp-cellery}
 distribution_url=${GIT_DISTRIBUTION_URL:-https://github.com/wso2-cellery/distribution/archive}
@@ -164,5 +112,4 @@ kubectl apply -f ${download_path}/distribution-${release_version}/installer/k8s-
 cd ~/
 sudo rm -r tmp-cellery
 sudo rm cellery-setup.log
-sudo rm cellery-ubuntu-x64-0.2.0.deb
 
