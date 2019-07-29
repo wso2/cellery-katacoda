@@ -71,6 +71,6 @@
     ]
   },
   "backend": {
-    "imageid": "wso2"
+    "imageid": "wso2-cellery-kubernetes-cluster"
   }
 }
