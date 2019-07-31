@@ -30,20 +30,6 @@ export HOST_IP="[[HOST_IP]]"
 ARTIFACTS_BASE_PATH=/usr/share/cellery/k8s-artefacts
 TEMP_DIR=/tmp
 
-clean_previous_installation(){
-    sudo apt-get purge -y cellery ballerina-0.990.3
-}
-
-install_ballerina(){
-    wget --directory-prefix=${TEMP_DIR} https://product-dist.ballerina.io/downloads/0.991.0/ballerina-linux-installer-x64-0.991.0.deb
-    sudo dpkg -i ${TEMP_DIR}/ballerina-linux-installer-x64-0.991.0.deb
-}
-
-install_cellery(){
-    wget --directory-prefix=${TEMP_DIR} https://github.com/wso2-cellery/sdk/releases/download/v0.3.0/cellery-ubuntu-x64-0.3.0.deb
-    sudo dpkg -i ${TEMP_DIR}/cellery-ubuntu-x64-0.3.0.deb
-}
-
 setup_doc_server(){
     sudo apt-get install npm nodejs-legacy -y
     npm install -g http-server
@@ -74,16 +60,7 @@ update_host_ip() {
 }
 
 
-clean_previous_installation
-
-install_ballerina
-echo "done" >> /opt/.ballerinaInstalled
-
-install_cellery
 setup_doc_server
-echo "done" >> /opt/.celleryInstalled
-
-
 
 update_apim_host_config
 update_observability_host_config
