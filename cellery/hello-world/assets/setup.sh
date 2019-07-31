@@ -17,12 +17,6 @@
 #
 # ------------------------------------------------------------------------
 
-echo "Installing Ballerina..."; while [ ! -f /opt/.ballerinaInstalled ] ; do sleep 1; done;
-echo "Ballerina installed"
-
-echo "Installing Cellery..."; while [ ! -f /opt/.celleryInstalled ] ; do sleep 1; done;
-echo "Cellery installed"
-
 echo "Updating Cellery Configuration..."; while [ ! -f /opt/.artifactsUpdated ] ; do sleep 1; done;
 echo "Cellery configuration updated"
 

@@ -31,7 +31,7 @@ ARTIFACTS_BASE_PATH=/usr/share/cellery/k8s-artefacts
 TEMP_DIR=/tmp
 
 clean_previous_installation(){
-    sudo apt-get purge -y cellery ballerina-0.990.3
+    sudo apt-get purge -y cellery ballerina-0.991.0
 }
 
 install_ballerina(){
