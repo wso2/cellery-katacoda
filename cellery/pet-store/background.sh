@@ -32,7 +32,7 @@ TEMP_DIR=/tmp
 
 copy_samples(){
     git clone https://github.com/wso2-cellery/samples
-    ( cd samples/ ; git checkout v0.3.0 )
+    ( cd samples/ ; git checkout v0.4.0 )
     mkdir -p /root/pet-store/pet-be/resources/
     mkdir -p /root/pet-store/pet-fe
     cp samples/cells/pet-store/pet-be/pet-be.bal /root/pet-store/pet-be
@@ -43,7 +43,7 @@ copy_samples(){
 setup_doc_server(){
     sudo apt-get install npm nodejs-legacy -y
     npm install -g http-server
-    wget --directory-prefix=${TEMP_DIR}/ https://github.com/Mirage20/katacoda-scenarios/releases/download/v0.3.0/pet-store-docs-view.zip
+    wget --directory-prefix=${TEMP_DIR}/ https://github.com/Mirage20/katacoda-scenarios/releases/download/v0.4.0/pet-store-docs-view.zip
     unzip -d ${TEMP_DIR}/pet-store-docs-view ${TEMP_DIR}/pet-store-docs-view.zip
     nohup http-server ${TEMP_DIR}/pet-store-docs-view/ -p 8080 > ${TEMP_DIR}/pet-store-docs-view/output.log 2>&1 &
 }
