@@ -10,17 +10,17 @@
     {
       "course_id": "pet-store",
       "title": "Pet-Store",
-      "description": "A guide that deploys simple Petstore with cellery"
+      "description": "A guide that deploys simple Pet Store with cellery"
     },
     {
       "course_id": "writing-cell",
       "title": "Writing cell file from scratch",
-      "description": "Setp by Setp guide to write a cell file"
+      "description": "Step by Step guide to write a cell file"
     },
     {
       "course_id": "playground-stable",
       "title": "Cellery Playground (Stable)",
-      "description": "Play and experiment with stable Cellery release v0.3.0"
+      "description": "Play and experiment with stable Cellery release v0.4.0"
     },
     {
       "course_id": "playground-nightly",
