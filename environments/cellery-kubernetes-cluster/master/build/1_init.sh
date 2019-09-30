@@ -9,9 +9,9 @@ install_ballerina(){
 }
 
 install_cellery(){
-    wget --directory-prefix=${TEMP_DIR} https://github.com/wso2-cellery/sdk/releases/download/v0.3.0/cellery-ubuntu-x64-0.3.0.deb
-    sudo dpkg -i ${TEMP_DIR}/cellery-ubuntu-x64-0.3.0.deb
-    sudo rm ${TEMP_DIR}/cellery-ubuntu-x64-0.3.0.deb
+    wget --directory-prefix=${TEMP_DIR} https://github.com/wso2-cellery/sdk/releases/download/v0.4.0/cellery-ubuntu-x64-0.4.0.deb
+    sudo dpkg -i ${TEMP_DIR}/cellery-ubuntu-x64-0.4.0.deb
+    sudo rm ${TEMP_DIR}/cellery-ubuntu-x64-0.4.0.deb
 }
 
 install_ballerina
