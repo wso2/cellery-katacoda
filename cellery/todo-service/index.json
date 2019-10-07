@@ -1,0 +1,66 @@
+{
+  "title": "Todo service composite",
+  "description": "Explore building and running composite apps with todo-service sample",
+  "details": {
+    "steps": [
+      {
+        "title": "Preparing the environment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Application Overview",
+        "text": "step2.md"
+      },
+      {
+        "title": "Todo composite File",
+        "text": "step3.md"
+      },
+      {
+        "title": "Build, Deploy and Test the Todo Composite",
+        "text": "step4.md"
+      },
+      {
+        "title": "Observability",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "background.sh",
+      "code": "foreground.sh",
+      "credits": ""
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "setup.sh",
+          "target": "/usr/local/bin/",
+          "chmod": "+x"
+        },
+        {
+          "file": "service-nodeport.yaml",
+          "target": "/tmp/"
+        }
+      ]
+    }
+  },
+  "files": [],
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/todo-service",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Docs View",
+        "href": "https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/"
+      },
+      {
+        "name": "Observability",
+        "href": "http://[[HOST_SUBDOMAIN]]-9004-[[KATACODA_HOST]].environments.katacoda.com/"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "wso2-cellery-kubernetes-cluster"
+  }
+}
