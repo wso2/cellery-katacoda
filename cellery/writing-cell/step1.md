@@ -76,7 +76,7 @@ is producing html web page, we are going to expose it as a `WebIngress`. The `We
 
 13. The `run` function is executed when you issue a `cellery run` command to deploy a cell.
     <pre class="file" data-filename="hello-world.bal" data-target="append">
-    public function run(cellery:ImageName iName, map&lt;cellery:ImageName&gt; instances) returns error? {
+    public function run(cellery:ImageName iName, map&lt;cellery:ImageName&gt; instances, boolean startDependencies, boolean shareDependencies) returns (cellery:InstanceState[]|error?) {
     </pre>
 
 14. We can use `cellery:constructCellImage` to generate our original cell image and do various modification before running the cell. 
@@ -103,7 +103,7 @@ is producing html web page, we are going to expose it as a `WebIngress`. The `We
 
 17. Finally, we are creating the actual deployable cell instance by calling `cellery:createInstance` function.
     <pre class="file" data-filename="hello-world.bal" data-target="append">
-        return cellery:createInstance(helloCell, iName, instances);</pre>
+        return cellery:createInstance(helloCell, iName, instances, startDependencies, shareDependencies);</pre>
         
 18. Close the curly brackets for the `run` function
     <pre class="file" data-filename="hello-world.bal" data-target="append">

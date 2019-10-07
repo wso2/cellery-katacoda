@@ -11,7 +11,7 @@ Once you build the image, you can check the available images by running `cellery
 
 Now you can run the cell image using following command. This executes run function inside the cell.
 
-`cellery run myorg/hello-world-cell:latest -e VHOST_NAME=$VHOST_NAME -n hello -y`{{execute}}
+`cellery run myorg/hello-world-cell:latest -e VHOST_NAME=$VHOST_NAME -n hello`{{execute}}
 
 To check the running cell instance, run `cellery list instances`{{execute}}
 
