@@ -1,6 +1,6 @@
 {
   "title": "Cellery tutorials",
-  "description": "This course contains series of tutorials about Cellery",
+  "description": "This course contains series of tutorials about Cellery.\n Reach us via Slack: https://cellery-io.slack.com",
   "courses": [
     {
       "course_id": "hello-world",
