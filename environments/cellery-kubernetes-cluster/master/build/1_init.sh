@@ -14,6 +14,5 @@ install_cellery(){
     sudo rm ${TEMP_DIR}/cellery-ubuntu-x64-0.5.0.deb
 }
 
-
 install_ballerina
 install_cellery
