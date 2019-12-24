@@ -33,7 +33,7 @@ TEMP_DIR=/tmp
 setup_doc_server(){
     sudo apt-get install npm nodejs-legacy -y
     npm install -g http-server
-    wget --directory-prefix=${TEMP_DIR}/ https://github.com/Mirage20/katacoda-scenarios/releases/download/v0.5.0/hello-world-docs-view.zip
+    wget --directory-prefix=${TEMP_DIR}/ https://github.com/Mirage20/katacoda-scenarios/releases/download/v0.6.0/hello-world-docs-view.zip
     unzip -d ${TEMP_DIR}/hello-world-docs-view ${TEMP_DIR}/hello-world-docs-view.zip
     nohup http-server ${TEMP_DIR}/hello-world-docs-view/ -p 8080 > ${TEMP_DIR}/hello-world-docs-view/output.log 2>&1 &
 }

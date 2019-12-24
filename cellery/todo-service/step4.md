@@ -3,14 +3,14 @@ Execute the following command to switch into the todo service composite folder
 `cd /root/todo-service`{{execute}}
 
 Build the todo-composite. It will generate the artifacts that are required to deploy todo composite  
-`cellery build todo-composite.bal wso2cellery/todo-composite:0.5.0`{{execute}}  
+`cellery build todo-composite.bal wso2cellery/todo-composite:0.6.0`{{execute}}  
 
 You can view the pre-generated composite diagram by clicking **Docs View** in the terminal tab panel.
 
 #### Deploy the Todo Composite  
 
 Run following command to deploy the todo composite.  
-`cellery run wso2cellery/todo-composite:0.5.0 -n todos`{{execute}}
+`cellery run wso2cellery/todo-composite:0.6.0 -n todos`{{execute}}
 
 You can view the status of by running  
 `cellery status todos`{{execute}}
