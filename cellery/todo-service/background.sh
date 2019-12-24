@@ -31,10 +31,10 @@ ARTIFACTS_BASE_PATH=/usr/share/cellery/k8s-artefacts
 TEMP_DIR=/tmp
 
 copy_samples(){
-    git clone https://github.com/wso2-cellery/samples
-    ( cd samples/ ; git checkout v0.6.0 )
+    git clone https://github.com/wso2/cellery-samples
+    ( cd cellery-samples/ ; git checkout v0.6.0 )
     mkdir -p /root/todo-service
-    cp samples/composites/todo-service/todo-composite.bal /root/todo-service
+    cp cellery-samples/composites/todo-service/todo-composite.bal /root/todo-service
 }
 
 setup_doc_server(){
