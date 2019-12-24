@@ -31,13 +31,13 @@ ARTIFACTS_BASE_PATH=/usr/share/cellery/k8s-artefacts
 TEMP_DIR=/tmp
 
 copy_samples(){
-    git clone https://github.com/wso2-cellery/samples
-    ( cd samples/ ; git checkout v0.6.0 )
+    git clone https://github.com/wso2/cellery-samples
+    ( cd cellery-samples/ ; git checkout v0.6.0 )
     mkdir -p /root/pet-store/pet-be/resources/
     mkdir -p /root/pet-store/pet-fe
-    cp samples/cells/pet-store/pet-be/pet-be.bal /root/pet-store/pet-be
-    cp samples/cells/pet-store/pet-be/resources/pet-store.swagger.json /root/pet-store/pet-be/resources
-    cp samples/cells/pet-store/pet-fe/pet-fe.bal /root/pet-store/pet-fe
+    cp cellery-samples/cells/pet-store/pet-be/pet-be.bal /root/pet-store/pet-be
+    cp cellery-samples/cells/pet-store/pet-be/resources/pet-store.swagger.json /root/pet-store/pet-be/resources
+    cp cellery-samples/cells/pet-store/pet-fe/pet-fe.bal /root/pet-store/pet-fe
 }
 
 setup_doc_server(){

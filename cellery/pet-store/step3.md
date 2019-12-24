@@ -19,4 +19,4 @@ Click on the links below to open the Cell files with the editor. The inline comm
 `pet-be/pet-be.bal`{{open}}  
 `pet-fe/pet-fe.bal`{{open}}
 
-If you are interested, you can find the sample source code at [https://github.com/wso2-cellery/samples](https://github.com/wso2-cellery/samples/tree/master/src/pet-store)
+If you are interested, you can find the sample source code at [https://github.com/wso2/cellery-samples](https://github.com/wso2/cellery-samples/tree/master/src/pet-store)

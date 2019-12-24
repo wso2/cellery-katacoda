@@ -14,4 +14,4 @@ This method is executed when the cell is built (`cellery build`). This is coming
 #### Run function
 This method is executed when the cell is run (`cellery run`). This is coming up in the next step.
 
-You can find more about the Cellery syntax by visiting https://github.com/wso2-cellery/spec
+You can find more about the Cellery syntax by visiting https://github.com/wso2/cellery-spec
