@@ -1,6 +1,6 @@
 {
   "title": "Cellery tutorials",
-  "description": "This course contains series of tutorials about Cellery.\n Reach us via Slack: https://wso2-cellery.slack.com",
+  "description": "This course contains series of tutorials about Cellery.\n Reach us via Slack: https://cellery-io.slack.com",
   "icon": "fa-cellery",
   "courses": [
     {
@@ -26,7 +26,7 @@
     {
       "course_id": "playground-stable",
       "title": "Cellery Playground (Stable)",
-      "description": "Play and experiment with stable Cellery release v0.5.0"
+      "description": "Play and experiment with stable Cellery release v0.6.0"
     },
     {
       "course_id": "playground-nightly",
