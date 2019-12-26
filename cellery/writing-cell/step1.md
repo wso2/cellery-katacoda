@@ -27,7 +27,7 @@ While it is configuring let's write a simple hello world cell file from scratch.
 
 6. Specify the docker image in the source section.
     <pre class="file" data-filename="hello-world.bal" data-target="append">
-           source: {
+           src: {
                image: "wso2cellery/samples-hello-world-webapp"
            },</pre>
 
@@ -67,7 +67,7 @@ is producing html web page, we are going to expose it as a `WebIngress`. The `We
 11. Call the `cellery:createImage` to build the actual cell image.
 
     <pre class="file" data-filename="hello-world.bal" data-target="append">
-       return cellery:createImage(helloCell, untaint iName);</pre>
+        return <@untainted> cellery:createImage(helloCell, iName);</pre>
 
 12. Close the curly brackets for the `build` function
     <pre class="file" data-filename="hello-world.bal" data-target="append">
@@ -81,13 +81,13 @@ is producing html web page, we are going to expose it as a `WebIngress`. The `We
 
 14. We can use `cellery:constructCellImage` to generate our original cell image and do various modification before running the cell. 
     <pre class="file" data-filename="hello-world.bal" data-target="append">
-        cellery:CellImage helloCell = check cellery:constructCellImage(untaint iName);</pre>
+        cellery:CellImage|cellery:Composite helloCell = cellery:constructImage(iName);</pre>
 
 15. We are planing to read the hostname from `VHOST_NAME` environment variable
     <pre class="file" data-filename="hello-world.bal" data-target="append">
         string vhostName = config:getAsString("VHOST_NAME");
         if (vhostName !== "") {
-            cellery:WebIngress web = &lt;cellery:WebIngress&gt;helloCell.components.helloComp.ingresses.webUI;
+            cellery:WebIngress web = &lt;cellery:WebIngress&gthelloCell.components["helloComp"]["ingresses"]["webUI"];
             web.gatewayConfig.vhost = vhostName;
         }
     </pre>
@@ -97,13 +97,13 @@ is producing html web page, we are going to expose it as a `WebIngress`. The `We
     <pre class="file" data-filename="hello-world.bal" data-target="append">
         string helloName = config:getAsString("HELLO_NAME");
         if (helloName !== "") {
-            helloCell.components.helloComp.envVars.HELLO_NAME.value = helloName;
+            helloCell.components["helloComp"]["envVars"]["HELLO_NAME"].value = helloName;
         }
     </pre>
 
 17. Finally, we are creating the actual deployable cell instance by calling `cellery:createInstance` function.
     <pre class="file" data-filename="hello-world.bal" data-target="append">
-        return cellery:createInstance(helloCell, iName, instances, startDependencies, shareDependencies);</pre>
+        return <@untainted> cellery:createInstance(helloCell, iName, instances, startDependencies, shareDependencies);</pre>
         
 18. Close the curly brackets for the `run` function
     <pre class="file" data-filename="hello-world.bal" data-target="append">

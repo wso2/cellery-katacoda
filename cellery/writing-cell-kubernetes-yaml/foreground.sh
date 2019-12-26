@@ -17,13 +17,8 @@
 #
 # ------------------------------------------------------------------------
 
-echo "Updating Cellery Configuration..."; while [ ! -f /opt/.artifactsUpdated ] ; do sleep 1; done;
-echo "Cellery configuration updated"
+export VHOST_NAME="[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
 
-echo "Waiting for Kubernetes to start..."; while [ ! -f /root/.kube/config ] ; do sleep 1; done;
-echo "Kubernetes started"
+sleep 2; setup.sh
 
-cellery setup create existing --complete
 
-kubectl delete pods -l app=wso2sp-worker -n cellery-system
-kubectl delete pods -l app=observability-portal -n cellery-system

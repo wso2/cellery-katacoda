@@ -32,4 +32,4 @@ echo "Kubernetes started"
 cellery setup create existing --complete
 
 kubectl delete pods -l app=wso2sp-worker -n cellery-system
-kubectl delete pods -l app=cellery-observability-portal -n cellery-system
+kubectl delete pods -l app=observability-portal -n cellery-system
