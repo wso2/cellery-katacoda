@@ -20,7 +20,6 @@
 export APIM_HOST_NAME="[[HOST_SUBDOMAIN]]-9000-[[KATACODA_HOST]].environments.katacoda.com"
 export APIM_GATEWAY_HOST_NAME="[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com"
 export OBSERVABILITY_HOST_NAME="[[HOST_SUBDOMAIN]]-9004-[[KATACODA_HOST]].environments.katacoda.com"
-export OBSERVABILITY_API_HOST_NAME="[[HOST_SUBDOMAIN]]-9006-[[KATACODA_HOST]].environments.katacoda.com"
 
 export HOST_SUBDOMAIN="[[HOST_SUBDOMAIN]]"
 export KATACODA_HOST="[[KATACODA_HOST]]"
@@ -54,10 +53,10 @@ update_apim_host_config () {
 
 update_observability_host_config () {
     echo 'Updating Observability Host Configurations'
+    sed -i 's/http:\/\/cellery-dashboard/https:\/\/cellery-dashboard/g' ${ARTIFACTS_BASE_PATH}/observability/node-server/config/portal.json
+    sed -i 's/http:\/\/cellery-dashboard/https:\/\/cellery-dashboard/g' ${ARTIFACTS_BASE_PATH}/observability/sp/conf/deployment.yaml
     find ${ARTIFACTS_BASE_PATH}/observability/ -type f -exec sed -i 's/cellery-dashboard/'${OBSERVABILITY_HOST_NAME}'/g' {} +
     find ${ARTIFACTS_BASE_PATH}/observability/ -type f -exec sed -i 's/idp.cellery-system/'${APIM_HOST_NAME}'/g' {} +
-    sed -i 's/http:\/\/wso2sp-observability-api/https:\/\/'${OBSERVABILITY_API_HOST_NAME}'/g' ${ARTIFACTS_BASE_PATH}/observability/node-server/config/portal.json
-    sed -i 's/wso2sp-observability-api/'${OBSERVABILITY_API_HOST_NAME}'/g' ${ARTIFACTS_BASE_PATH}/observability/sp/sp-worker.yaml
 }
 
 update_host_ip() {

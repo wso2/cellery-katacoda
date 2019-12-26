@@ -14,14 +14,19 @@
       "description": "A guide that deploys simple Pet Store with cellery"
     },
     {
-      "course_id": "writing-cell",
-      "title": "Writing cell file from scratch",
-      "description": "Step by Step guide to write a cell file"
-    },
-    {
       "course_id": "todo-service",
       "title": "Todo service composite",
       "description": "Explore composites with todo-service sample"
+    },
+    {
+      "course_id": "writing-cell",
+      "title": "Writing cell file from scratch",
+      "description": "Step by Step guide to write a cell file using Cellery SDK"
+    },
+    {
+      "course_id": "writing-cell-kubernetes-yaml",
+      "title": "Writing cell YAML from scratch",
+      "description": "Step by Step guide on writing Kubernetes YAML file without using any programming language"
     },
     {
       "course_id": "playground-stable",

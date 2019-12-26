@@ -1,6 +1,6 @@
 {
-  "title": "Writing cell file from scratch",
-  "description": "Step by Step guide to write a cell file using Cellery SDK",
+  "title": "Writing cell YAML from scratch",
+  "description": "Step by Step guide on writing Kubernetes YAML file without using any programming language",
   "time": "20 minutes",
   "details": {
     "steps": [

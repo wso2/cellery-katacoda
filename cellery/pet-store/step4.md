@@ -3,7 +3,7 @@ Execute the following command to switch into backend folder
 `cd /root/pet-store/pet-be`{{execute}}
 
 Build the pet-be Cell. It will generate the artifacts that are required to deploy your Cell  
-`cellery build pet-be.bal wso2cellery/pet-be-cell:0.6.0`{{execute}}  
+`cellery build . wso2cellery/pet-be-cell:0.6.0`{{execute}}  
 
 #### Building the frontend Cell
 Execute the following command to switch into frontend folder  

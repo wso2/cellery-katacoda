@@ -20,7 +20,6 @@
 export APIM_HOST_NAME="[[HOST_SUBDOMAIN]]-9000-[[KATACODA_HOST]].environments.katacoda.com"
 export APIM_GATEWAY_HOST_NAME="[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com"
 export OBSERVABILITY_HOST_NAME="[[HOST_SUBDOMAIN]]-9004-[[KATACODA_HOST]].environments.katacoda.com"
-export OBSERVABILITY_API_HOST_NAME="[[HOST_SUBDOMAIN]]-9006-[[KATACODA_HOST]].environments.katacoda.com"
 
 export HOST_SUBDOMAIN="[[HOST_SUBDOMAIN]]"
 export KATACODA_HOST="[[KATACODA_HOST]]"
@@ -33,9 +32,9 @@ TEMP_DIR=/tmp
 copy_samples(){
     git clone https://github.com/wso2/cellery-samples
     ( cd cellery-samples/ ; git checkout v0.6.0 )
-    mkdir -p /root/pet-store/pet-be/resources/
+    mkdir -p /root/pet-store/pet-be
     mkdir -p /root/pet-store/pet-fe
-    cp cellery-samples/cells/pet-store/pet-be/pet-be.bal /root/pet-store/pet-be
+    cp -r cellery-samples/cells/pet-store/pet-be/* /root/pet-store/pet-be/
     cp cellery-samples/cells/pet-store/pet-be/resources/pet-store.swagger.json /root/pet-store/pet-be/resources
     cp cellery-samples/cells/pet-store/pet-fe/pet-fe.bal /root/pet-store/pet-fe
 }
@@ -57,10 +56,10 @@ update_apim_host_config () {
 
 update_observability_host_config () {
     echo 'Updating Observability Host Configurations'
+    sed -i 's/http:\/\/cellery-dashboard/https:\/\/cellery-dashboard/g' ${ARTIFACTS_BASE_PATH}/observability/node-server/config/portal.json
+    sed -i 's/http:\/\/cellery-dashboard/https:\/\/cellery-dashboard/g' ${ARTIFACTS_BASE_PATH}/observability/sp/conf/deployment.yaml
     find ${ARTIFACTS_BASE_PATH}/observability/ -type f -exec sed -i 's/cellery-dashboard/'${OBSERVABILITY_HOST_NAME}'/g' {} +
     find ${ARTIFACTS_BASE_PATH}/observability/ -type f -exec sed -i 's/idp.cellery-system/'${APIM_HOST_NAME}'/g' {} +
-    sed -i 's/http:\/\/wso2sp-observability-api/https:\/\/'${OBSERVABILITY_API_HOST_NAME}'/g' ${ARTIFACTS_BASE_PATH}/observability/node-server/config/portal.json
-    sed -i 's/wso2sp-observability-api/'${OBSERVABILITY_API_HOST_NAME}'/g' ${ARTIFACTS_BASE_PATH}/observability/sp/sp-worker.yaml
 }
 
 update_host_ip() {

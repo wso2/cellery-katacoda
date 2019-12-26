@@ -16,7 +16,9 @@ Take your time and explore the files that are generated for you.
 
 Click on the links below to open the Cell files with the editor. The inline comments will explain about each field and operation.
 
-`pet-be/pet-be.bal`{{open}}  
+Here we used a Ballerina project for **pet-be** and single cell file for **pet-fe**
+
+`pet-be/src/pet_be/pet-be.bal`{{open}}  
 `pet-fe/pet-fe.bal`{{open}}
 
 If you are interested, you can find the sample source code at [https://github.com/wso2/cellery-samples](https://github.com/wso2/cellery-samples/tree/master/src/pet-store)
